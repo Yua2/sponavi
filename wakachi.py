@@ -44,7 +44,10 @@ base_url = "https://sports.yahoo.co.jp/news/list"
 # カテゴリにつき10ページ(200記事)取得し、CSVに保存する。
  
 
-category_list = ['tennis']
+category_list = ["baseball", "soccer", 'keiba',
+                'golf','figure','f1', 'motor',
+                'fight','sumo','volley','rugby','athletic',
+                'basket']
 
 # カテゴリの初期値 
 category_num = 1
@@ -60,7 +63,7 @@ nunmber_of_articles_in_a_page = 20
 
 # 記事カテゴリごとに、何ページ分取得するかという変数
 # 50ページ取得するので、50とする 20記事 x 500p = 10000記事
-iter_num_of_a_page = 500
+iter_num_of_a_page = 3
 
 # each_sentense_list = []
 
@@ -140,7 +143,7 @@ for z in range(len(category_list)):
             # 日本語記号の除去
             article = format_text(article)
 
-            article = wakati_by_mecab( article)
+            article = wakati_by_mecab(article)
 
             # CSVに書き込む記事タイトルの配列を作成
             csvlist.append(article)
@@ -150,7 +153,7 @@ print(csvlist)
 
 
 # CSVファイルを開く。ファイルがなければ新規作成する。
-with open("Dataset_tennis_bodyfromsports_wakachi.csv", "w") as f:
+with open("Dataset_all_catogories_from_SportsNavi_ftformat.txt", "w") as f:
     for v in range(len(csvlist)):
       if 0 <= v < nunmber_of_articles_in_a_page*(iter_num_of_a_page*1): 
         cate_num = 0
@@ -183,4 +186,7 @@ with open("Dataset_tennis_bodyfromsports_wakachi.csv", "w") as f:
       elif nunmber_of_articles_in_a_page*(iter_num_of_a_page*14) <= v < nunmber_of_articles_in_a_page*(iter_num_of_a_page*15):
         cate_num = 14
 
-      f.write("{},{}\n".format(csvlist[v], category_list[cate_num]))
+      # f.write("{},{}\n".format(csvlist[v], category_list[cate_num]))
+
+      # fastText format
+      f.write("__{}__,{}\n".format(category_list[cate_num],csvlist[v]))
