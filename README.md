@@ -1,4 +1,4 @@
-# sponavi
+# Sports navi から　スポーツニュースを取得してスポーツニュース識別器生成
 
 
 ## 学習手順
@@ -23,7 +23,7 @@ test_dataset_shuffled.txt　を作成
 
 5. モデルの推論結果を確認
 ```shell
-./fasttext predict model001.bin - 
+./fasttext predict model001.bin - 5
 ```
 
 6. テストデータを与えてモデルの精度を確認
@@ -42,12 +42,14 @@ fastText
 #### 参照ページ
 [fastText tutorial](https://fasttext.cc/docs/en/supervised-tutorial.html)  
 
-上のリンクのページにあるコマンドおよびパラメータを理解する。
+上のリンクのページにあるコマンドおよびパラメータを理解します。
 
 例：
+```bash
 -lr 0.5 -epoch 25 -wordNgrams 2 -bucket 200000 -dim 50 -loss one-vs-all
+``
 
-それぞれどのような意味なのか理解する。
+それぞれ参照ページを参考にどのような意味なのか理解します。
 
 
 
