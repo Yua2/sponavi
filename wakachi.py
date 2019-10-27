@@ -63,7 +63,7 @@ nunmber_of_articles_in_a_page = 20
 
 # 記事カテゴリごとに、何ページ分取得するかという変数
 # 50ページ取得するので、50とする 20記事 x 500p = 10000記事
-iter_num_of_a_page = 3
+iter_num_of_a_page = 1
 
 # each_sentense_list = []
 
