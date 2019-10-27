@@ -189,4 +189,4 @@ with open("Dataset_all_catogories_from_SportsNavi_ftformat.txt", "w") as f:
       # f.write("{},{}\n".format(csvlist[v], category_list[cate_num]))
 
       # fastText format
-      f.write("__{}__,{}\n".format(category_list[cate_num],csvlist[v]))
+      f.write("__label__{},{}\n".format(category_list[cate_num],csvlist[v]))
